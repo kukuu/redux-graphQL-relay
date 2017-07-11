@@ -1,7 +1,4 @@
-# Getting Started with Redux and GraphQL
-
-
-## Usage
+# Redux, GraphQL and REACT
 
 1. Clone repository
 
