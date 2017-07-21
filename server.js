@@ -1,4 +1,7 @@
-//Alexander Adu-Sarkodie
+//Author: Alexander Adu-Sarkodie
+//Server launc file for Model, Querry and Schema
+//Graphiql IDE loaded via webpack to offset CORS issues
+//IDE is ackaged into webpack and can be launched from Can be launched from http://localhost:8080}
 
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
@@ -14,47 +17,20 @@ var GraphQLInt = graphql.GraphQLInt;
 //Define data
 var goldbergs = {
   1: {
-    character: "Beverly Goldberg",
-    actor: "Wendi McLendon-Covey",
-    role: "matriarch",
-    traits: "embarrasing, overprotective",
-    id: 1
+    _id: 1,
+    categories: ['first',' second'], 
+    tags: ['foo','bar'] 
   },
   2: {
-    character: "Murray Goldberg",
-    actor: "Jeff Garlin",
-    role: "patriarch",
-    traits: "gruff, lazy",
-    id: 2
+    _id: 2,
+    categories: ['Massimiliano',' max@worldlabs.org'],
+    tags: ['foos','bars']
   },
   3: {
-    character: "Erica Goldberg",
-    actor: "Hayley Orrantia",
-    role: "oldest child",
-    traits: "rebellious, nonchalant",
-    id: 3
-  },
-  4: {
-    character: "Barry Goldberg",
-    actor: "Troy Gentile",
-    role: "middle child",
-    traits: "dim-witted, untalented",
-    id: 4
-  },
-  5: {
-    character: "Adam Goldberg",
-    actor: "Sean Giambrone",
-    role: "youngest child",
-    traits: "geeky, pop-culture obsessed",
-    id: 5
-  },
-  6: {
-    character: "Albert 'Pops' Solomon",
-    actor: "George Segal",
-    role: "grandfather",
-    traits: "goofy, laid back",
-    id: 6
-  }
+    _id: 3,
+    categories: ['Tom',' tom@fullstack.london'],
+    tags: ['foo!','bar!']
+  } 
 }
 
 //When we resolve our query we return the output of a function called getGoldberg():
@@ -67,31 +43,27 @@ var goldbergType = new GraphQLObjectType({
   name: 'Goldberg',
   description: "Member of The Goldbergs",
   fields: {
-    character: {
+    categories: {
       type: GraphQLString,
-      description: "Name of the character",
+      description: "Name of the categories",
     },
-    actor: {
+    tags: {
       type: GraphQLString,
-      description: "Actor playing the character",
+      description: "Name of the tag",
     },
-    role: {
-      type: GraphQLString,
-      description: "Family role"
-    },
-    traits: {
-      type: GraphQLString,
-      description: "Traits this Goldberg is known for"
-    },
-    id: {
+    _id: {
       type: GraphQLInt,
-      description: "ID of this Goldberg",
+      description: "ID of this Goldberg instance",
     }
   }
 });
 
 
 //Define Query. This is also an instance GraphQLObjectType
+//Here in the query we define a "goldberg" field witha type equal to the type in the  schema above "goldbergType"
+//Properties of the "goldberg" field in the query
+//1. type 2. args, resolve
+//in the resolve we return a the function getGoldberg(args.id) from above
 var queryType = new GraphQLObjectType({
   name: 'query',
   description: "Goldberg query",
@@ -99,12 +71,12 @@ var queryType = new GraphQLObjectType({
     goldberg: {
       type: goldbergType,
       args: {
-        id: {
+        _id: {
           type: GraphQLInt
         }
       },
       resolve: function(_, args){
-        return getGoldberg(args.id)
+        return getGoldberg(args._id)
       }
     }
   }
@@ -115,6 +87,7 @@ var schema = new GraphQLSchema({
   query: queryType
 });
 
+// Serving the schema
 //We use express and the graphqlHTTP middleware to serve our schema.
 //With graphiql set to true we can easily test our work:
 var graphQLServer = express();
