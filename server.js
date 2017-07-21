@@ -1,7 +1,7 @@
 //Author: Alexander Adu-Sarkodie
 //Server launc file for Model, Querry and Schema
 //Graphiql IDE loaded via webpack to offset CORS issues
-//IDE is ackaged into webpack and can be launched from Can be launched from http://localhost:8080}
+//IDE is hackaged into webpack and can be  launched from http://localhost:8080}
 
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
