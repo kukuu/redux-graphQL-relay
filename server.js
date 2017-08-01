@@ -117,7 +117,7 @@ var compiler = webpack({
 
 var app = new WebpackDevServer(compiler, {
   contentBase: '/public/',
-  proxy: {'/graphql': `http://localhost:${8080}`},
+  proxy: {'/graphql': `http://localhost:${8070}`},
   publicPath: '/static/',
   stats: {colors: true}
 });
