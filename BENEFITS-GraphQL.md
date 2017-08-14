@@ -61,10 +61,15 @@ get name of the user with id=1
 
 
 ``` 
+
 {
+
  user(id: 1) {
+
    name
+
  }
+
 }
 
 ```
@@ -75,11 +80,17 @@ get names for friends of the user with id=1
 ```
 
 {
+
  user(id: 1) {
+
    friends {
+
      name
+
    }
+
  }
+
 }
 
 ```
@@ -89,12 +100,19 @@ get age and friends of the user with id=1
 ```
 
 {
+
  user(id: 1) {
+
    age
+
    friends {
+
      name
+
    }
+
  }
+
 }
 
 ```
@@ -103,11 +121,17 @@ get names of the dogs of the friends of the user with id=1 :)
 
 ```
 {
+
  user(id: 1) {
+
    friends {
+
      dogs {
+
        name
+
      }
+
    }
 
    ```
@@ -127,46 +151,73 @@ iii. GraphQL queries are like JSON objects without properties:
 
 ```
 // a json object
+
 {
+
   "user": "name"
-}
-// a graphql query
-{
-  user {
-    name
-  }
+
 }
 
 ```
+
 
 ```
 
 // a graphql query
+
 {
+
   user {
+
     name
+
   }
+
 }
 
 ```
 
+
+```
+// a graphql query
+
+{
+  user {
+
+    name
+
+  }
+
+}
+
+```
+
+
+```
 //We can write named queries:
 
 {
+
   findUser(id: 1)
+
 }
 
 ```
+
 
 
 ```
 
 you can pass parameters to your query:
 
-query findUser($userId: String!) {  
+query findUser($userId: String!) { 
+
   findUser(id: $userId) {
+
     name
+
   }
+  
 }
 
 ```
