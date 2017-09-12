@@ -55,7 +55,8 @@ GET /users/1/friends/1/dogs/1?include=user.name,dog.age
 ## Solving problem with GraphQL
 
 This is exactly the problem what GraphQL wants to solve. 
-If you have types of user and dog and their relations are defined, you can write any kind of query to get your data.
+If you have types of user and dog and their relations are defined, 
+you can write any kind of query to get your data.
 
 You will have the following queries out of the box:
 
