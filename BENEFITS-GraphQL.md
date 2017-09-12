@@ -39,7 +39,8 @@ Check out our previous query and how similar it is to the following component st
 
 ## Differences with REST
 
-REST APIs are resource based. Basically what you do is that you address your resources like GET /users/1/friends, which is a unique path for them. It tells you very well that you are looking for the friends of the user with id=1.
+REST APIs are resource based. Basically what you do is that you address your resources like GET /users/1/friends, 
+which is a unique path for them. It tells you very well that you are looking for the friends of the user with id=1.
 
 The advantages of REST APIs are that they are cacheable, and their behaviour is obvious.
 
