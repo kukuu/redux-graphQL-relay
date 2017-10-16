@@ -79,9 +79,14 @@ GET /users/1?include=friends.name
 
 A. We use GraphQL data modelling Architecture to construct 3 types to enable get an end point:
 
-i. A type for the model.
-ii. A type for the query.
-iii. A type for the schema.
+```
+i. A type for the model
+
+ii. A type for the query
+
+iii. A type for the schema
+
+```
 
 When we resolve our query we return the output of a function from the data model. This is in server.js
 
