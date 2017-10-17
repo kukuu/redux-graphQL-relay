@@ -1,8 +1,26 @@
-/*Mutations With Relay
+/*
+Author: Alexander Adu-Sarkodie
+Summary: Mutations With Relay
 
-Up until this point we have only interacted with the GraphQL endpoint to perform queries that fetch data. In this guide, you will learn how to use Relay to perform mutations – operations that consist of writes to the data store followed by a fetch of any changed fields.
+Relay is the data framework that lives inside the app, and GraphQL is a query language used within 
+Relay to represent the data schema.
 
-A complete example */
+GraphQL is also run on a server separately from the app to provide a data source for Relay to interact with.
+
+The Store/Reducer/Component interaction from Redux does not exist with Relay. Relay takes a different approach, 
+and removes a lot of the building work you normally need to do when integrating data.
+
+Also  until now from this repository we have only interacted with the GraphQL endpoint to
+perform queries that fetch data. In here, we will use Relay  to perform mutations – operations that consist of 
+writes to the data store followed by a fetch of any changed fields.
+
+With Relay, each React component specifies exactly what data it depends on, using GraphQL. 
+Relay handles everything about fetching that data, providing the component with updates when the data changes, 
+and caching the data client-side. 
+
+Anytime the app wants to change the data itself, it creates a GraphQL "Mutation" instead of an "Action" as with Redux.
+
+ */
 
 class LikeStoryMutation extends Relay.Mutation {
   // This method should return a GraphQL operation that represents
@@ -52,8 +70,8 @@ class LikeStoryMutation extends Relay.Mutation {
   }
   // This mutation has a hard dependency on the story's ID. We specify this
   // dependency declaratively here as a GraphQL query fragment. Relay will
-  // use this fragment to ensure that the story's ID is available wherever
-  // this mutation is used.
+  // use this fragment to ensure that the story's "id" is available wherever
+  // this mutation is used (static).
   static fragments = {
     story: () => Relay.QL`
       fragment on Story {
