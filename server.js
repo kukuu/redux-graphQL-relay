@@ -1,5 +1,5 @@
 //Author: Alexander Adu-Sarkodie
-//Server launc file for Model, Querry and Schema
+//Server launch file for Model, Querry and Schema
 //Graphiql IDE loaded via webpack to offset CORS issues
 //IDE is hackaged into webpack and can be  launched from http://localhost:8080}
 
@@ -14,7 +14,7 @@ var GraphQLObjectType = graphql.GraphQLObjectType;
 var GraphQLString = graphql.GraphQLString;
 var GraphQLInt = graphql.GraphQLInt;
 
-//Define data
+//Define data source
 var goldbergs = {
   1: {
     _id: 1,
@@ -34,6 +34,7 @@ var goldbergs = {
 }
 
 //When we resolve our query we return the output of a function called getGoldberg():
+//See line 78 from query
 function getGoldberg(id) {
   return goldbergs[id]
 }
@@ -68,15 +69,17 @@ var queryType = new GraphQLObjectType({
   name: 'query',
   description: "Goldberg query",
   fields: {
+    //Name of field
     goldberg: {
-      type: goldbergType,
+      // 3 properties are associated with the name:type/args/resolve function
+      type: goldbergType,//this is the instance type created for the schema
       args: {
         _id: {
           type: GraphQLInt
         }
       },
       resolve: function(_, args){
-        return getGoldberg(args._id)
+        return getGoldberg(args._id)//see line 38. This is used to return a record goldbergs[id]
       }
     }
   }
@@ -84,7 +87,7 @@ var queryType = new GraphQLObjectType({
 
 //Finally, the “schema type” brings it all together.
 var schema = new GraphQLSchema({
-  query: queryType
+  query: queryType //Attach query instance
 });
 
 // Serving the schema
