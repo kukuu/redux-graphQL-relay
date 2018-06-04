@@ -39,7 +39,7 @@ function getGoldberg(id) {
   return goldbergs[id]
 }
 
-//Define Schema
+//Define Model We create a new instance of GraphQLObjectType and name it “Goldberg”.
 var goldbergType = new GraphQLObjectType({
   name: 'Goldberg',
   description: "Member of The Goldbergs",
