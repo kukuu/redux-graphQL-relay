@@ -25,7 +25,7 @@ Anytime the app wants to change the data itself, it creates a GraphQL "Mutation"
 class LikeStoryMutation extends Relay.Mutation {
   // This method should return a GraphQL operation that represents
   // the mutation to be performed. This presumes that the server
-  // implements a mutation type named ‘likeStory’.
+  // implements a mutation type named ‘likeStory’- Class.
   getMutation() {
     return Relay.QL`mutation {likeStory}`;
   }
