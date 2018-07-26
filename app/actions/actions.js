@@ -1,5 +1,5 @@
-const startingRequest = () => {
-  return {
+const startingRequest = () => { //Action Creator
+  return {  //Action
     type: "STARTING_REQUEST"
   }
 }
@@ -11,6 +11,9 @@ const finishedRequest = (response) => {
   }
 }
 
+
+//We’ll get to use dispatch() twice in a new action called getGraph
+// During startingRequest() and finishedRequest(JSON.parse(response)
 export const getGraph = (payload) => {
   return dispatch => {
     dispatch(startingRequest());
