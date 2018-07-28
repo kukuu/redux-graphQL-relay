@@ -9,6 +9,7 @@ var express = require('express');
 var graphqlHTTP = require('express-graphql');
 var graphql = require('graphql');
 
+//Instantiate  types:: schema, object, string, Integer
 var GraphQLSchema = graphql.GraphQLSchema;
 var GraphQLObjectType = graphql.GraphQLObjectType;
 var GraphQLString = graphql.GraphQLString;
