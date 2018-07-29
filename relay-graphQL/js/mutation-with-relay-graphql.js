@@ -42,6 +42,7 @@ class LikeStoryMutation extends Relay.Mutation {
   // story or not. Relay will intersect this query with a ‘tracked query’
   // that represents the data that your application actually uses, and
   // instruct the server to include only those fields in its response.
+  //note the use of plurals reflects on nested properties of order arrays
   getFatQuery() {
     return Relay.QL`
       fragment on LikeStoryPayload {
@@ -93,7 +94,7 @@ class LikeButton extends React.Component {
     return (
       <div>
         {this.props.story.viewerDoesLike
-          ? 'You like this'
+          ? 'You like this?'
           : <button onClick={this._handleLike}>Like this</button>
         }
       </div>
