@@ -28,7 +28,7 @@
 
 5. Webpack
 
-6.webpack-dev-server.
+6.webpack-dev-server
 
 7. Express
 
