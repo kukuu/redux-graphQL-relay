@@ -47,7 +47,7 @@ The client asks for various data from the GraphQL server via queries. The respon
 The structure of the data is not hardcoded as in traditional REST APIs - this makes retrieving data from the server more efficient for the client.
 
 
-For example, the client can ask for linked resources without defining new API endpoints. With the following GraphQL query, we can ask for the user specific fields and the linked friends resource as well.
+For example, the client can ask for linked resources without defining new API endpoints! With the following GraphQL query, we can ask for the user specific fields and the linked friends resource as well.
 
 ```
 {
