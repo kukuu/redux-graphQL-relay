@@ -1,5 +1,6 @@
 //Author: Alexander Adu-Sarkodie
 //Server launch file for Model, Querry and Schema
+//GraphQL provides run time client query definitions without need for end points
 //Graphiql IDE loaded via webpack to offset CORS issues
 //IDE is hackaged into webpack and can be  launched from http://localhost:8080}
 
@@ -35,7 +36,7 @@ var goldbergs = {
 }
 
 //When we resolve our query we return the output of a function called getGoldberg():
-//See line 78 from query
+//See line 84 below from query
 function getGoldberg(id) {
   return goldbergs[id]
 }
@@ -62,7 +63,7 @@ var goldbergType = new GraphQLObjectType({
 
 
 //Define Query. This is also an instance GraphQLObjectType
-//Here in the query we define a "goldberg" field witha type equal to the type in the  schema above "goldbergType"
+//Here in the query we define a "goldberg" field with a type equal to the type in the  schema above "goldbergType"
 //Properties of the "goldberg" field in the query
 //1. type 2. args, resolve
 //in the resolve we return a the function getGoldberg(args.id) from above
@@ -80,7 +81,7 @@ var queryType = new GraphQLObjectType({
         }
       },
       resolve: function(_, args){
-        return getGoldberg(args._id)//see line 38. This is used to return a record goldbergs[id]
+        return getGoldberg(args._id)//see line 40. This is used to return a record goldbergs[id]
       }
     }
   }
