@@ -44,7 +44,7 @@ function getGoldberg(id) {
 //Define Model We create a new instance of GraphQLObjectType and name it “Goldberg”.
 var goldbergType = new GraphQLObjectType({
   name: 'Goldberg',
-  description: "Member of The Goldbergs",
+  description: "Member of The Goldbergs Clan",
   fields: {
     categories: {
       type: GraphQLString,
