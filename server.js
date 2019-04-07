@@ -19,17 +19,17 @@ var GraphQLInt = graphql.GraphQLInt;
 //Define data source
 var goldbergs = {
   1: {
-    _id: 1,
+    id: 1,
     categories: ['first',' second'], 
     tags: ['foo','bar'] 
   },
   2: {
-    _id: 2,
+    id: 2,
     categories: ['Massimiliano',' max@worldlabs.org'],
     tags: ['foos','bars']
   },
   3: {
-    _id: 3,
+    id: 3,
     categories: ['Tom',' tom@fullstack.london'],
     tags: ['foo!','bar!']
   } 
@@ -54,7 +54,7 @@ var goldbergType = new GraphQLObjectType({
       type: GraphQLString,
       description: "Name of the tag",
     },
-    _id: {
+    id: {
       type: GraphQLInt,
       description: "ID of this Goldberg instance",
     }
@@ -76,7 +76,7 @@ var queryType = new GraphQLObjectType({
       // 3 properties are associated with the name:type/args/resolve function
       type: goldbergType,//this is the instance type created for the schema
       args: {
-        _id: {
+        id: {
           type: GraphQLInt
         }
       },
